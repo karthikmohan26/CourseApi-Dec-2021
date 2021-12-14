@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.karthik.topic.model.Topic;
 import com.karthik.topic.service.TopicService;
 import com.karthik.topic.simple.jdbc.dao.SimpleJDBCDao;
+import com.karthik.topic.spring.jdbc.dao.SpringJDBCDao;
 
 @Service
 public class TopicServiceImpl implements TopicService {
@@ -21,6 +22,9 @@ public class TopicServiceImpl implements TopicService {
 
     @Autowired
     private SimpleJDBCDao simpleJDBCDao;
+    
+    @Autowired
+    private SpringJDBCDao springJDBCDao;
 	
 	@Override
 	public List<Topic> getTopics() {
@@ -60,6 +64,12 @@ public class TopicServiceImpl implements TopicService {
 	public List<Topic> getAllTopicsSimpleJdbc() 
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		return simpleJDBCDao.getAllTopicsSimpleJdbc();
+	}
+
+	@Override
+	public List<Topic> getAllTopicsSpringJdbc() {
+		// TODO Auto-generated method stub
+		return springJDBCDao.getAllTopicsSpringJdbc();
 	}
 
 }

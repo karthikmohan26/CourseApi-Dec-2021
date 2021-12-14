@@ -54,5 +54,9 @@ public interface TopicController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Topic> getAllTopicsSimpleJdbc() 
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException ;
+	
+	@RequestMapping(method=RequestMethod.GET, value="/topics/spring/jdbc", 
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Topic> getAllTopicsSpringJdbc() ;
 
 }

@@ -60,6 +60,13 @@ public class TopicControllerImpl implements TopicController {
 		return topicService.getAllTopicsSimpleJdbc();
 	}
 
+	@RequestMapping(method=RequestMethod.GET,value="/topics/spring/jdbc",
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Topic> getAllTopicsSpringJdbc() {
+		// TODO Auto-generated method stub
+		return topicService.getAllTopicsSpringJdbc();
+	}
+
 	
 	
 	
