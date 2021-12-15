@@ -26,49 +26,68 @@ public class TopicControllerImpl implements TopicController {
 	@Autowired
 	private TopicService topicService;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/topics", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, value = "/topics", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Topic> getAllTopics() {
 		return topicService.getTopics();
 	}
-	
-	@RequestMapping(method=RequestMethod.GET,value="/topics/{id}",produces=MediaType.APPLICATION_JSON_VALUE)
+
+	@RequestMapping(method = RequestMethod.GET, value = "/topics/{id}", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public Topic getTopicById(@PathVariable String id) {
 		return topicService.getTopicById(id);
 	}
 
-	@RequestMapping(method=RequestMethod.POST,value="/topics" , produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "/topics", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public void addTopic(@RequestBody Topic topic) {
-	topicService.addTopic(topic);
+		topicService.addTopic(topic);
 	}
 
-	@RequestMapping(method=RequestMethod.PUT, value="/topics/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.PUT, value = "/topics/{id}",
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public void updateTopic(Topic topic, String id) {
-	topicService.updateTopic(topic,id);
+		topicService.updateTopic(topic, id);
 	}
 
-	@RequestMapping(method=RequestMethod.DELETE, value="/topics/{id}", 
-			produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteTopic(Topic topic, String id) {
-		topicService.deleteTopic(topic,id);
+		topicService.deleteTopic(topic, id);
 	}
-	
-	
-	@RequestMapping(method=RequestMethod.GET, value="/topics/simple/jdbc", 
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Topic> getAllTopicsSimpleJdbc() 
+
+	@RequestMapping(method = RequestMethod.GET, value = "/topics/simple/jdbc", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Topic> getAllTopicsSimpleJdbc()
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		return topicService.getAllTopicsSimpleJdbc();
 	}
 
-	@RequestMapping(method=RequestMethod.GET,value="/topics/spring/jdbc",
-			produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = RequestMethod.GET, value = "/topics/spring/jdbc", 
+			produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Topic> getAllTopicsSpringJdbc() {
 		// TODO Auto-generated method stub
 		return topicService.getAllTopicsSpringJdbc();
 	}
 
-	
-	
-	
+	@Override
+	public Topic getTopicSpringJDBCById(String id) {
+		return topicService.getTopicSpringJDBCById(id);
+	}
+
+	@Override
+	public void addSpringJDBCTopic(Topic topic) {
+		topicService.addSpringJDBCTopic(topic);
+	}
+
+	@Override
+	public void updateSpringJDBCTopic(Topic topic, String id) {
+		topicService.updateSpringJDBCTopic(topic, id);
+	}
+
+	@Override
+	public void deleteSpringJDBCTopic(String id) {
+		topicService.deleteSpringJDBCTopic(id);
+
+	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,10 +54,27 @@ public interface TopicController {
 	@RequestMapping(method=RequestMethod.GET, value="/topics/simple/jdbc", 
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Topic> getAllTopicsSimpleJdbc() 
-			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException ;
+			throws InstantiationException, 
+			IllegalAccessException, ClassNotFoundException, SQLException ;
 	
 	@RequestMapping(method=RequestMethod.GET, value="/topics/spring/jdbc", 
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Topic> getAllTopicsSpringJdbc() ;
+	
+	@RequestMapping(method=RequestMethod.GET,value="/topics/spring/jdbc/{id}",
+			produces=MediaType.APPLICATION_JSON_VALUE) 
+	public Topic getTopicSpringJDBCById(@PathVariable String id);
+	
+	@RequestMapping(method=RequestMethod.POST,value="/topics/spring/jdbc",
+			produces=MediaType.APPLICATION_JSON_VALUE) 
+	public void addSpringJDBCTopic(@RequestBody Topic topic);
+	
+	@RequestMapping(method=RequestMethod.PUT, value="topics/spring/{id}",
+			produces=MediaType.APPLICATION_JSON_VALUE) 
+	public void updateSpringJDBCTopic(@RequestBody Topic topic , @PathVariable String id);
+	
+	@RequestMapping(method=RequestMethod.DELETE, value="topics/spring/{id}",
+			produces=MediaType.APPLICATION_JSON_VALUE) 
+	public void deleteSpringJDBCTopic(@PathVariable String id);
 
 }

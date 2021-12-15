@@ -22,5 +22,9 @@ public interface TopicService {
 	public List<Topic> getAllTopicsSimpleJdbc() 
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException;
 	public List<Topic> getAllTopicsSpringJdbc();
+	public Topic getTopicSpringJDBCById(String id);
+	public void addSpringJDBCTopic(Topic topic);
+	public void updateSpringJDBCTopic(Topic topic, String id);
+	public void deleteSpringJDBCTopic(String id);
 
 }

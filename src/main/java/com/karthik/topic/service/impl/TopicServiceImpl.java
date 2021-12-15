@@ -68,8 +68,29 @@ public class TopicServiceImpl implements TopicService {
 
 	@Override
 	public List<Topic> getAllTopicsSpringJdbc() {
-		// TODO Auto-generated method stub
 		return springJDBCDao.getAllTopicsSpringJdbc();
+	}
+
+	@Override
+	public Topic getTopicSpringJDBCById(String id) {
+		return springJDBCDao.getTopicSpringJDBCById(id);
+	}
+
+	@Override
+	public void addSpringJDBCTopic(Topic topic) {
+		springJDBCDao.addSpringJDBCTopic(topic);		
+	}
+
+	@Override
+	public void updateSpringJDBCTopic(Topic topic, String id) {
+		springJDBCDao.updateSpringJDBCTopic(topic,id);		
+		
+	}
+
+	@Override
+	public void deleteSpringJDBCTopic(String id) {
+		springJDBCDao.deleteSpringJDBCTopic(id);		
+		
 	}
 
 }

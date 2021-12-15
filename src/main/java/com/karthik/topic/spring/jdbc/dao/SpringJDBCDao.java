@@ -10,5 +10,9 @@ import com.karthik.topic.model.Topic;
 public interface SpringJDBCDao {
 
 	List<Topic> getAllTopicsSpringJdbc();
+	Topic getTopicSpringJDBCById(String id);
+	void addSpringJDBCTopic(Topic topic);
+	void updateSpringJDBCTopic(Topic topic, String id);
+	void deleteSpringJDBCTopic(String id);
 
 }

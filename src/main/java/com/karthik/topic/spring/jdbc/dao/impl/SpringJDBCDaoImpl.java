@@ -37,4 +37,24 @@ public class SpringJDBCDaoImpl implements SpringJDBCDao {
 
 	}
 
+	@Override
+	public Topic getTopicSpringJDBCById(String id) {
+		return jdbcTemplate.queryForObject(DBConstants.GET_TOPIC_BY_ID, new Object[] {id}, new TopicMapper());
+	}
+
+	@Override
+	public void addSpringJDBCTopic(Topic topic) {
+         jdbcTemplate.update(DBConstants.INSERT_TOPIC, new Object[]{topic.getId(),topic.getName(),topic.getDescription()});	
+	}
+
+	@Override
+	public void updateSpringJDBCTopic(Topic topic, String id) {
+		jdbcTemplate.update(DBConstants.UPDATE_TOPIC, new Object[] {id,topic.getName(),topic.getDescription()});	
+	}
+
+	@Override
+	public void deleteSpringJDBCTopic(String id) {
+		jdbcTemplate.update(DBConstants.DELETE_TOPIC, new Object[] {id});
+	}
+
 }
