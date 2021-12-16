@@ -90,4 +90,9 @@ public class TopicControllerImpl implements TopicController {
 
 	}
 
+	@Override
+	public void addSpringNamedJDBCTopic(Topic topic) {
+		topicService.addSpringNamedJDBCTopic(topic);		
+	}
+
 }

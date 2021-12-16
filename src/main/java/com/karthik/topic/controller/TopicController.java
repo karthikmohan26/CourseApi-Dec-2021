@@ -76,5 +76,9 @@ public interface TopicController {
 	@RequestMapping(method=RequestMethod.DELETE, value="topics/spring/{id}",
 			produces=MediaType.APPLICATION_JSON_VALUE) 
 	public void deleteSpringJDBCTopic(@PathVariable String id);
+	
+	@RequestMapping(method=RequestMethod.POST, value="/topics/spring/namedJdbc",
+			produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public void addSpringNamedJDBCTopic(@RequestBody Topic topic);
 
 }

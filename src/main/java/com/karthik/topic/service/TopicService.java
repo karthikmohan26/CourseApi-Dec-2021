@@ -26,5 +26,6 @@ public interface TopicService {
 	public void addSpringJDBCTopic(Topic topic);
 	public void updateSpringJDBCTopic(Topic topic, String id);
 	public void deleteSpringJDBCTopic(String id);
+	public void addSpringNamedJDBCTopic(Topic topic);
 
 }

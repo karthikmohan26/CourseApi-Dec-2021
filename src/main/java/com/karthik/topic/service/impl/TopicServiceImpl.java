@@ -93,4 +93,9 @@ public class TopicServiceImpl implements TopicService {
 		
 	}
 
+	@Override
+	public void addSpringNamedJDBCTopic(Topic topic) {
+		springJDBCDao.addSpringNamedJDBCTopic(topic);		
+	}
+
 }

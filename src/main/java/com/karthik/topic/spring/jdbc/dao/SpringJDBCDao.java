@@ -14,5 +14,6 @@ public interface SpringJDBCDao {
 	void addSpringJDBCTopic(Topic topic);
 	void updateSpringJDBCTopic(Topic topic, String id);
 	void deleteSpringJDBCTopic(String id);
+	void addSpringNamedJDBCTopic(Topic topic);
 
 }
