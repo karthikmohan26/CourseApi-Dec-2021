@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.karthik.topic.model.Topic;
+import com.karthik.topic.simple.jdbc.dao.SimpleJDBCDao;
 
 @Repository
 public interface SpringJDBCDao {

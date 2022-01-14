@@ -17,7 +17,7 @@ import com.karthik.topic.spring.jdbc.dao.SpringJDBCDao;
 import com.karthik.topic.spring.jdbc.dao.mapper.TopicMapper;
 
 @Repository
-public class SpringJDBCDaoImpl implements SpringJDBCDao {
+public class SpringJDBCDaoImpl implements SpringJDBCDao  {
 
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
@@ -46,7 +46,8 @@ public class SpringJDBCDaoImpl implements SpringJDBCDao {
 
 	@Override
 	public Topic getTopicSpringJDBCById(String id) {
-		return jdbcTemplate.queryForObject(DBConstants.GET_TOPIC_BY_ID, new Object[] { id }, new TopicMapper());
+		return jdbcTemplate.queryForObject(DBConstants.GET_TOPIC_BY_ID, new Object[] { id }, 
+				new TopicMapper());
 	}
 
 	@Override
@@ -61,12 +62,12 @@ public class SpringJDBCDaoImpl implements SpringJDBCDao {
 		SqlParameterSource sqlParameters = new MapSqlParameterSource("id", topic.getId())
 				.addValue("name", topic.getName()).addValue("description", topic.getDescription());
 		namedParameterJdbcTemplate.update(DBConstants.INSERT_NAMEDJDBC_TOPIC, sqlParameters);
-
 	}
 
 	@Override
 	public void updateSpringJDBCTopic(Topic topic, String id) {
-		jdbcTemplate.update(DBConstants.UPDATE_TOPIC, new Object[] { id, topic.getName(), topic.getDescription() });
+		jdbcTemplate.update(DBConstants.UPDATE_TOPIC, new Object[] { id, topic.getName(), 
+				topic.getDescription() });
 	}
 
 	@Override
